@@ -44,11 +44,25 @@ export default function Hero() {
         HTML и CSS, пишем программы на C#, C++ и Python.
       </motion.p>
 
-      <motion.blockquote
+      <motion.div
         variants={fadeUp}
         initial="hidden"
         animate="show"
         custom={3}
+        className="mt-10 flex justify-center"
+      >
+        <img
+          src="/assets/hero.gif"
+          alt="Hryak Team"
+          className="w-full max-w-xl rounded-2xl border border-line object-cover shadow-2xl shadow-blurple/20"
+        />
+      </motion.div>
+
+      <motion.blockquote
+        variants={fadeUp}
+        initial="hidden"
+        animate="show"
+        custom={4}
         className="glass mx-auto mt-10 max-w-2xl rounded-2xl border-l-2 border-l-blurple p-6 text-left font-mono text-sm leading-relaxed text-gray-300 sm:p-7"
       >
         «Эра легендарного Hryak Team прошла, раньше мы были там в почете,
@@ -59,7 +73,7 @@ export default function Hero() {
         variants={fadeUp}
         initial="hidden"
         animate="show"
-        custom={4}
+        custom={5}
         className="mt-10 flex flex-wrap items-center justify-center gap-2.5"
       >
         {badges.map((b) => (
@@ -76,7 +90,7 @@ export default function Hero() {
         variants={fadeUp}
         initial="hidden"
         animate="show"
-        custom={5}
+        custom={6}
         className="mt-14 flex justify-center"
       >
         <a
