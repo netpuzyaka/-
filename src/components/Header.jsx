@@ -30,7 +30,7 @@ export default function Header() {
       <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-3.5">
         <a href="#top" className="group flex items-center gap-3">
           <img
-            src="/assets/logo.gif"
+            src="/assets/logo.png"
             alt="Hryak Team"
             className="h-10 w-10 rounded-xl border border-line object-cover shadow-md shadow-blurple/30 transition-transform duration-300 group-hover:scale-105 group-hover:rotate-3"
           />

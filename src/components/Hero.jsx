@@ -52,7 +52,7 @@ export default function Hero() {
         className="mt-10 flex justify-center"
       >
         <img
-          src="/assets/hero.gif"
+          src="/assets/hero.png"
           alt="Hryak Team"
           className="w-full max-w-xl rounded-2xl border border-line object-cover shadow-2xl shadow-blurple/20"
         />
