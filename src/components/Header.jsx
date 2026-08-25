@@ -35,9 +35,7 @@ export default function Header() {
             className="h-10 w-10 rounded-xl border border-line object-cover shadow-md shadow-blurple/30 transition-transform duration-300 group-hover:scale-105 group-hover:rotate-3"
           />
           <div className="leading-tight">
-            <span className="block font-display text-sm font-bold tracking-wide">
-              Hryak Team
-            </span>
+            <span className="block font-display text-3xl leading-none tracking-normal">Hryak Team</span>
             <span className="block font-mono text-[10px] text-mist">
               imgenius_ · drbabaxa
             </span>

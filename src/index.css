@@ -3,7 +3,7 @@
 @theme {
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, monospace;
-  --font-display: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Great Vibes", "Inter", cursive;
 
   --color-ink: #05060c;
   --color-surface: #0b0d16;
