@@ -41,11 +41,7 @@ function UnmonitoredCard({ username, id }) {
         </div>
       </div>
       <div className="mt-5 rounded-xl border border-line bg-ink/60 p-4 text-sm leading-relaxed text-mist">
-        Зайди на сервер{" "}
-        <a href="https://discord.gg/lanyard" target="_blank" rel="noopener noreferrer" className="font-mono text-blurple underline decoration-blurple/40 underline-offset-4 hover:text-blurple-2">
-          discord.gg/lanyard
-        </a>{" "}
-        один раз — и твой статус появится здесь в реальном времени.
+        Статус пока недоступен.
       </div>
       <a
         href={`https://discord.com/users/${id}`}

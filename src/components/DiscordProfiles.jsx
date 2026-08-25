@@ -44,17 +44,6 @@ export default function DiscordProfiles() {
           <DiscordCard key={u.id} user={u} presence={state[u.id]} index={i} />
         ))}
       </div>
-
-      <motion.p
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true }}
-        transition={{ delay: 0.5 }}
-        className="mt-8 text-center font-mono text-xs text-mist/70"
-      >
-        Статусы обновляются в реальном времени · если профиль «не отслеживается» —
-        зайди на discord.gg/lanyard
-      </motion.p>
     </section>
   );
 }
