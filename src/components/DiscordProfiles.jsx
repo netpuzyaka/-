@@ -23,7 +23,7 @@ export default function DiscordProfiles() {
           <p className="mb-3 font-mono text-xs uppercase tracking-[0.25em] text-blurple">
             // live presence
           </p>
-          <h2 className="font-display text-5xl sm:text-6xl">Мы в Discord</h2>
+          <h2 className="font-display text-3xl font-bold tracking-tight sm:text-4xl">Мы в Discord</h2>
         </div>
         <div
           className={`flex items-center gap-2 rounded-full border px-3.5 py-1.5 font-mono text-xs ${

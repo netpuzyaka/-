@@ -38,7 +38,7 @@ export default function About() {
         <p className="mb-3 font-mono text-xs uppercase tracking-[0.25em] text-blurple">
           // who we are
         </p>
-        <h2 className="font-display text-5xl sm:text-6xl">О нас</h2>
+        <h2 className="font-display text-3xl font-bold tracking-tight sm:text-4xl">О нас</h2>
       </motion.div>
 
       <div className="mt-10 grid gap-5 md:grid-cols-2">

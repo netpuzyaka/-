@@ -27,7 +27,7 @@ export default function Hero() {
         initial="hidden"
         animate="show"
         custom={1}
-        className="font-display text-6xl leading-[1.15] tracking-normal sm:text-8xl lg:text-9xl"
+        className="font-display text-5xl font-extrabold leading-[1.1] tracking-tight sm:text-7xl"
       >
         <span className="text-gradient">Hryak Team</span>
       </motion.h1>
