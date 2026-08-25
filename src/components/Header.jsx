@@ -32,7 +32,7 @@ export default function Header() {
           <img
             src="/assets/logo.png"
             alt="Hryak Team"
-            className="h-10 w-10 rounded-xl border border-line object-cover shadow-md shadow-blurple/30 transition-transform duration-300 group-hover:scale-105 group-hover:rotate-3"
+            className="invert h-10 w-10 rounded-xl border border-line object-cover shadow-md shadow-blurple/30 transition-transform duration-300 group-hover:scale-105 group-hover:rotate-3"
           />
           <div className="leading-tight">
             <span className="block text-[15px] font-bold tracking-tight text-white">Hryak Team</span>
