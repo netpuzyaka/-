@@ -17,15 +17,25 @@ export function useTilt(max = 6) {
       const rotateX = -Math.max(-1, Math.min(1, dy)) * max;
       el.style.transform = `perspective(800px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
     };
+    const onEnter = () => {
+      el.style.transition = "";
+      document.addEventListener("mousemove", onMove);
+    };
     const onLeave = () => {
+      document.removeEventListener("mousemove", onMove);
+      el.style.transition = "transform .25s ease";
       el.style.transform = "perspective(800px) rotateX(0deg) rotateY(0deg)";
+      setTimeout(() => {
+        el.style.transition = "";
+      }, 250);
     };
 
-    document.addEventListener("mousemove", onMove);
-    document.addEventListener("mouseleave", onLeave);
+    el.addEventListener("mouseenter", onEnter);
+    el.addEventListener("mouseleave", onLeave);
     return () => {
+      el.removeEventListener("mouseenter", onEnter);
+      el.removeEventListener("mouseleave", onLeave);
       document.removeEventListener("mousemove", onMove);
-      document.removeEventListener("mouseleave", onLeave);
     };
   }, [max]);
 
