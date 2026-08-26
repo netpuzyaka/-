@@ -393,7 +393,7 @@ export default function DiscordCard({ user, presence, index }) {
             style={{
               background: accent
                 ? `linear-gradient(120deg, ${accent}55, transparent)`
-                : "linear-gradient(120deg, rgba(139,147,255,0.0), rgba(139,147,255,0.0))",
+                : "linear-gradient(120deg, rgba(139,147,255,0), rgba(139,147,255,0))",
             }}
           />
         )}
