@@ -22,8 +22,11 @@ export default function Header() {
         scrolled ? "border-b border-line bg-surface/80 backdrop-blur" : "bg-transparent"
       }`}
     >
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-3.5">
-        <a href="#top" className="flex items-center gap-3">
+      <div className="relative mx-auto flex max-w-6xl items-center justify-end px-5 py-3.5">
+        <a
+          href="#top"
+          className="absolute left-1/2 top-1/2 flex -translate-x-1/2 -translate-y-1/2 items-center gap-3"
+        >
           <img
             src="/assets/logo.png"
             alt="Hryak Team"
