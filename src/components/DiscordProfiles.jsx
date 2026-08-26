@@ -20,17 +20,15 @@ export default function DiscordProfiles() {
         className="flex flex-wrap items-end justify-between gap-4"
       >
         <div>
-          <p className="mb-3 font-mono text-xs uppercase tracking-[0.25em] text-neon-purple">
+          <p className="mb-2 font-mono text-xs uppercase tracking-[0.2em] text-mist">
             // live presence
           </p>
-          <h2 className="text-neon glitch-target font-display text-3xl font-bold tracking-tight sm:text-4xl">
-            Мы в Discord
-          </h2>
+          <h2 className="text-2xl font-bold tracking-tight">Мы в Discord</h2>
         </div>
         <div
           className={`flex items-center gap-2 rounded-full border px-3.5 py-1.5 font-mono text-xs ${
             connected
-              ? "border-neon-cyan/30 bg-neon-cyan/10 text-neon-cyan shadow-[0_0_14px_rgba(62,242,224,.25)]"
+              ? "border-online/30 bg-online/10 text-online"
               : "border-idle/30 bg-idle/10 text-idle"
           }`}
         >

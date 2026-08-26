@@ -150,11 +150,11 @@ function Badge({ label, color, icon }) {
 
 function SkeletonCard() {
   return (
-    <div className="glass-card overflow-hidden rounded-3xl">
+    <div className="overflow-hidden rounded-2xl border border-line bg-card">
       <div className="skeleton h-24 w-full rounded-none" />
       <div className="px-6 pb-6">
         <div className="-mt-8 flex items-end gap-4">
-          <div className="skeleton h-16 w-16 rounded-full ring-4 ring-surface" />
+          <div className="skeleton h-16 w-16 rounded-full ring-4 ring-card" />
           <div className="flex-1 space-y-2 pb-1">
             <div className="skeleton h-5 w-32 rounded" />
             <div className="skeleton h-3 w-20 rounded" />
@@ -168,23 +168,23 @@ function SkeletonCard() {
 
 function UnmonitoredCard({ username, id }) {
   return (
-    <div className="glass-card overflow-hidden rounded-3xl">
-      <div className="h-24 w-full bg-gradient-to-r from-neon-pink/35 to-neon-purple/20" />
+    <div className="overflow-hidden rounded-2xl border border-line bg-card">
+      <div className="h-24 w-full bg-white/5" />
       <div className="px-6 pb-6">
         <div className="-mt-8 flex items-end gap-4">
-          <div className="flex h-16 w-16 items-center justify-center rounded-full border border-line bg-black/50 text-2xl font-bold text-ink-soft ring-4 ring-surface">
+          <div className="flex h-16 w-16 items-center justify-center rounded-full border border-line bg-surface text-2xl font-bold text-mist ring-4 ring-card">
             {username[0].toUpperCase()}
           </div>
           <div className="pb-1">
             <h3 className="text-lg font-bold">{username}</h3>
-            <p className="text-sm text-ink-soft">статус недоступен</p>
+            <p className="text-sm text-mist">статус недоступен</p>
           </div>
         </div>
         <a
           href={`https://discord.com/users/${id}`}
           target="_blank"
           rel="noopener noreferrer"
-          className="mt-5 inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-neon-pink to-neon-purple px-4 py-2.5 text-sm font-bold text-white shadow-lg shadow-neon-pink/25 transition-shadow hover:shadow-neon-purple/40"
+          className="mt-5 inline-flex items-center gap-2 rounded-xl bg-white/10 px-4 py-2.5 text-sm font-semibold transition-colors hover:bg-white/15"
         >
           Профиль в Discord
           <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
@@ -227,7 +227,7 @@ function GameBlock({ a }) {
   const pct = hasProgress ? Math.min(100, ((now - start) / (end - start)) * 100) : null;
 
   return (
-    <div className="flex items-center gap-3 rounded-xl border border-line bg-black/40 p-3">
+    <div className="flex items-center gap-3 rounded-xl border border-line bg-surface p-3">
       {large && (
         <div className="relative h-12 w-12 shrink-0">
           <img src={large} alt="" className="h-12 w-12 rounded-lg object-cover" />
@@ -242,14 +242,14 @@ function GameBlock({ a }) {
       )}
       <div className="min-w-0 flex-1">
         <div className="flex items-center justify-between gap-2">
-          <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-neon-purple">Играет</p>
+          <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-mist">Играет</p>
           {start && (
-            <span className="shrink-0 font-mono text-[11px] text-ink-soft">
+            <span className="shrink-0 font-mono text-[11px] text-mist">
               {fmtElapsed(now - start)}
             </span>
           )}
         </div>
-        <p className="truncate text-sm font-semibold text-ink">{a.name}</p>
+        <p className="truncate text-sm font-semibold">{a.name}</p>
         {(a.details || a.state) && (
           <p className="truncate text-xs text-ink-soft">
             {[a.details, a.state].filter(Boolean).join(" — ")}
@@ -257,10 +257,7 @@ function GameBlock({ a }) {
         )}
         {hasProgress && (
           <div className="mt-2 h-1 overflow-hidden rounded-full bg-white/10">
-            <div
-              className="h-full rounded-full bg-gradient-to-r from-neon-pink to-neon-purple shadow-[0_0_10px_rgba(255,62,201,.6)]"
-              style={{ width: `${pct}%` }}
-            />
+            <div className="h-full rounded-full bg-accent" style={{ width: `${pct}%` }} />
           </div>
         )}
       </div>
@@ -277,7 +274,7 @@ function SpotifyBlock({ spotify }) {
   const pct = total > 0 ? Math.min(100, (elapsed / total) * 100) : 0;
 
   return (
-    <div className="rounded-xl border border-line bg-black/40 p-3">
+    <div className="rounded-xl border border-line bg-surface p-3">
       <div className="flex items-center gap-3">
         {spotify.album_art_url ? (
           <img src={spotify.album_art_url} alt="" className="h-11 w-11 shrink-0 rounded-md object-cover" />
@@ -292,7 +289,7 @@ function SpotifyBlock({ spotify }) {
         )}
         <div className="min-w-0 flex-1">
           <div className="flex items-center justify-between gap-2">
-            <p className="truncate text-sm font-semibold text-ink">{spotify.song}</p>
+            <p className="truncate text-sm font-semibold">{spotify.song}</p>
             <span className="shrink-0 rounded-full border border-online/30 bg-online/10 px-2 py-0.5 font-mono text-[10px] text-online">
               Spotify
             </span>
@@ -301,14 +298,11 @@ function SpotifyBlock({ spotify }) {
         </div>
       </div>
       <div className="mt-2.5 flex items-center gap-2">
-        <span className="font-mono text-[10px] text-ink-soft">{fmtClock(elapsed)}</span>
+        <span className="font-mono text-[10px] text-mist">{fmtClock(elapsed)}</span>
         <div className="h-1 flex-1 overflow-hidden rounded-full bg-white/10">
-          <div
-            className="h-full rounded-full bg-online shadow-[0_0_10px_rgba(34,197,94,.6)]"
-            style={{ width: `${pct}%` }}
-          />
+          <div className="h-full rounded-full bg-online" style={{ width: `${pct}%` }} />
         </div>
-        <span className="font-mono text-[10px] text-ink-soft">{fmtClock(total)}</span>
+        <span className="font-mono text-[10px] text-mist">{fmtClock(total)}</span>
       </div>
     </div>
   );
@@ -337,7 +331,7 @@ const PlatformIcon = ({ type }) => {
   };
   const labels = { desktop: "Desktop", web: "Web", mobile: "Mobile" };
   return (
-    <span title={labels[type]} className="text-ink-soft/70 transition-colors hover:text-ink">
+    <span title={labels[type]} className="text-mist/70 transition-colors hover:text-ink">
       {icons[type]}
     </span>
   );
@@ -347,10 +341,10 @@ const PlatformIcon = ({ type }) => {
 
 export default function DiscordCard({ user, presence, index }) {
   const motionProps = {
-    initial: { opacity: 0, y: 30 },
+    initial: { opacity: 0, y: 16 },
     whileInView: { opacity: 1, y: 0 },
     viewport: { once: true, margin: "-60px" },
-    transition: { duration: 0.6, delay: index * 0.12 },
+    transition: { duration: 0.5, delay: index * 0.08 },
   };
 
   if (presence?.status === "loading" || !presence) {
@@ -383,7 +377,7 @@ export default function DiscordCard({ user, presence, index }) {
   return (
     <motion.article
       {...motionProps}
-      className="glass-card group overflow-hidden rounded-3xl transition-all duration-300 hover:-translate-y-1.5 hover:border-neon-pink/50 hover:shadow-2xl hover:shadow-neon-pink/10"
+      className="overflow-hidden rounded-2xl border border-line bg-card transition-colors duration-300 hover:border-white/20"
     >
       <div className="relative h-24 w-full">
         {du.banner ? (
@@ -399,44 +393,40 @@ export default function DiscordCard({ user, presence, index }) {
             style={{
               background: accent
                 ? `linear-gradient(120deg, ${accent}55, transparent)`
-                : "linear-gradient(120deg, rgba(255,62,201,0.35), rgba(155,92,255,0.12))",
+                : "linear-gradient(120deg, rgba(139,147,255,0.25), rgba(139,147,255,0.06))",
             }}
           />
         )}
-        <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-card to-transparent" />
       </div>
 
       <div className="px-6 pb-6">
         <div className="-mt-8 flex items-end gap-4">
           <div className="relative shrink-0">
-            <div className="conic-ring h-16 w-16 p-[2.5px]">
-              <div className="spin-back h-full w-full bg-surface">
-                {du.avatar ? (
-                  <img
-                    src={avatarUrl(user.id, du.avatar)}
-                    alt={name}
-                    className="h-full w-full rounded-full object-cover"
-                  />
-                ) : (
-                  <div className="flex h-full w-full items-center justify-center rounded-full bg-surface text-2xl font-bold text-ink-soft">
-                    {name[0].toUpperCase()}
-                  </div>
-                )}
+            {du.avatar ? (
+              <img
+                src={avatarUrl(user.id, du.avatar)}
+                alt={name}
+                className="h-16 w-16 rounded-full object-cover ring-4 ring-card"
+              />
+            ) : (
+              <div className="flex h-16 w-16 items-center justify-center rounded-full bg-surface text-2xl font-bold text-mist ring-4 ring-card">
+                {name[0].toUpperCase()}
               </div>
-            </div>
+            )}
             <span
-              className={`absolute -bottom-0.5 -right-0.5 h-[18px] w-[18px] rounded-full border-[3px] border-surface ${st.color}`}
+              className={`absolute -bottom-0.5 -right-0.5 h-[18px] w-[18px] rounded-full border-[3px] border-card ${st.color}`}
               title={st.label}
             />
           </div>
           <div className="min-w-0 flex-1 pb-1">
             <div className="flex flex-wrap items-center gap-1.5">
-              <h3 className="truncate text-xl font-bold text-ink">{name}</h3>
+              <h3 className="truncate text-xl font-bold">{name}</h3>
               {badges.map((b) => (
                 <Badge key={b.label} {...b} />
               ))}
             </div>
-            <p className="text-sm text-ink-soft">@{du.username}</p>
+            <p className="text-sm text-mist">@{du.username}</p>
           </div>
         </div>
 
@@ -459,7 +449,7 @@ export default function DiscordCard({ user, presence, index }) {
             href={`https://discord.com/users/${user.id}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-neon-pink to-neon-purple px-4 py-2.5 text-sm font-bold text-white shadow-lg shadow-neon-pink/25 transition-shadow hover:shadow-neon-purple/40"
+            className="inline-flex items-center gap-2 rounded-xl bg-white/10 px-4 py-2.5 text-sm font-semibold transition-colors hover:bg-white/15"
           >
             Профиль в Discord
             <svg width="14" height="14" viewBox="0 0 14 14" fill="none">

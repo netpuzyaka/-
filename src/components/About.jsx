@@ -3,75 +3,55 @@ import { motion } from "framer-motion";
 const cards = [
   {
     icon: (
-      <svg width="26" height="26" viewBox="0 0 26 26" fill="none">
-        <path d="M8 4h10v18H8V4z" stroke="currentColor" strokeWidth="1.8" strokeLinejoin="round" />
-        <path d="M13 4v18M6.5 8.5h1.5M6.5 12.5h1.5M18 8.5h1.5M18 12.5h1.5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+        <path d="M8 9h8M8 13h5" />
       </svg>
     ),
-    title: "Разработка сайтов",
-    text: "Современные сайты и веб-приложения на React с чистой разметкой на HTML и стилизацией на CSS. Адаптивно, быстро, с вниманием к деталям.",
-    tags: ["React", "HTML", "CSS"],
-    accent: "from-neon-pink/25 to-transparent",
-    glow: "hover:border-neon-pink/60 hover:shadow-neon-pink/15",
-    iconColor: "text-neon-pink group-hover:text-neon-cyan",
+    title: "Промптология",
+    text: "Наука говорить с моделями. Правильный промпт — и DeepSeek выдаёт ровно то, что нужно. Пишем, тестируем и доводим промпты до идеала.",
   },
   {
     icon: (
-      <svg width="26" height="26" viewBox="0 0 26 26" fill="none">
-        <path d="M9 20l-5.5-5.5L9 9M17 9l5.5 5.5L17 20M15 7l-4 12" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M9.5 3A2.5 2.5 0 0 0 7 5.5a2.5 2.5 0 0 0-1 4.8A3.5 3.5 0 0 0 3 13.5c0 2 1.5 3.5 3.5 3.5H12" />
+        <path d="M12 5.5A2.5 2.5 0 0 1 14.5 3a2.5 2.5 0 0 1 2.5 2.5" />
+        <path d="M12 17h8M16 13v8M14 15h4M14 19h4" />
       </svg>
     ),
-    title: "Разработка программ",
-    text: "Десктопные приложения на C#, производительный системный код на C++ и скрипты, утилиты и автоматизация на Python.",
-    tags: ["C#", "C++", "Python"],
-    accent: "from-neon-purple/25 to-transparent",
-    glow: "hover:border-neon-purple/60 hover:shadow-neon-purple/15",
-    iconColor: "text-neon-purple group-hover:text-neon-cyan",
+    title: "Гниение мозга",
+    text: "Brainrot — наша среда обитания. Знаем все мемы, тренды и странные уголки интернета. Мозг тает, но контент остаётся.",
   },
 ];
 
 export default function About() {
   return (
-    <section id="about" className="relative mx-auto max-w-6xl scroll-mt-24 px-5 py-20">
+    <section id="about" className="mx-auto max-w-3xl scroll-mt-24 px-5 py-14">
       <motion.div
-        initial={{ opacity: 0, y: 24 }}
+        initial={{ opacity: 0, y: 16 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-80px" }}
-        transition={{ duration: 0.6 }}
+        transition={{ duration: 0.5 }}
       >
-        <p className="mb-3 font-mono text-xs uppercase tracking-[0.25em] text-neon-pink">
+        <p className="mb-2 font-mono text-xs uppercase tracking-[0.2em] text-mist">
           // who we are
         </p>
-        <h2 className="text-neon glitch-target font-display text-3xl font-bold tracking-tight sm:text-4xl">
-          О нас
-        </h2>
+        <h2 className="text-2xl font-bold tracking-tight">О нас</h2>
       </motion.div>
 
-      <div className="mt-10 grid gap-5 md:grid-cols-2">
+      <div className="mt-6 grid gap-4 sm:grid-cols-2">
         {cards.map((c, i) => (
           <motion.article
             key={c.title}
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-60px" }}
-            transition={{ duration: 0.6, delay: i * 0.12 }}
-            className={`glass-card group relative overflow-hidden rounded-3xl p-7 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-2xl ${c.glow}`}
+            transition={{ duration: 0.5, delay: i * 0.08 }}
+            className="rounded-2xl border border-line bg-card p-6"
           >
-            <div className={`pointer-events-none absolute inset-0 bg-gradient-to-br ${c.accent}`} />
-            <div className="relative">
-              <div className={`mb-5 inline-flex h-14 w-14 items-center justify-center rounded-2xl border border-line bg-surface transition-colors duration-300 ${c.iconColor}`}>
-                {c.icon}
-              </div>
-              <h3 className="mb-2.5 text-xl font-bold">{c.title}</h3>
-              <p className="text-sm leading-relaxed text-ink-soft">{c.text}</p>
-              <div className="mt-5 flex flex-wrap gap-2">
-                {c.tags.map((t) => (
-                  <span key={t} className="rounded-md border border-line bg-black/30 px-2.5 py-1 font-mono text-xs text-ink-soft">
-                    {t}
-                  </span>
-                ))}
-              </div>
-            </div>
+            <div className="mb-4 text-ink-soft">{c.icon}</div>
+            <h3 className="mb-2 text-base font-bold">{c.title}</h3>
+            <p className="text-sm leading-relaxed text-ink-soft">{c.text}</p>
           </motion.article>
         ))}
       </div>
