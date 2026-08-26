@@ -2,7 +2,7 @@
 
 Персональный сайт-визитка команды **Hryak Team**: [imgenius_](https://discord.com/users/1099012863835783168) и [drbabaxa](https://discord.com/users/1323381913410601150).
 
-Мы — разработчики сайтов и программ:
+Мы — пидоры ебаные:
 
 - **Сайты:** React, HTML, CSS
 - **Программы:** C#, C++, Python
