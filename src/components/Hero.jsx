@@ -1,46 +1,58 @@
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { useViews } from "../hooks/useViews.js";
 
-const spring = { stiffness: 55, damping: 15 };
+const spring = { stiffness: 180, damping: 18 };
 
 export default function Hero() {
   const views = useViews();
-  const mx = useMotionValue(0.5);
-  const my = useMotionValue(0.5);
+  const stageRef = useRef(null);
+  const px = useMotionValue(0);
+  const py = useMotionValue(0);
 
   useEffect(() => {
-    const onMove = (e) => {
-      mx.set(e.clientX / window.innerWidth);
-      my.set(e.clientY / window.innerHeight);
-    };
-    window.addEventListener("mousemove", onMove);
-    return () => window.removeEventListener("mousemove", onMove);
-  }, [mx, my]);
+    const el = stageRef.current;
+    if (!el || window.matchMedia("(hover: none)").matches) return;
 
-  const imgX = useSpring(useTransform(mx, [0, 1], [-22, 22]), spring);
-  const imgY = useSpring(useTransform(my, [0, 1], [-16, 16]), spring);
-  const rotX = useSpring(useTransform(my, [0, 1], [9, -9]), spring);
-  const rotY = useSpring(useTransform(mx, [0, 1], [-12, 12]), spring);
-  const glowX = useSpring(useTransform(mx, [0, 1], [-32, 32]), spring);
-  const glowY = useSpring(useTransform(my, [0, 1], [-24, 24]), spring);
+    const onMove = (e) => {
+      const rect = el.getBoundingClientRect();
+      const cx = rect.left + rect.width / 2;
+      const cy = rect.top + rect.height / 2;
+      px.set(Math.max(-1, Math.min(1, (e.clientX - cx) / (rect.width / 2))));
+      py.set(Math.max(-1, Math.min(1, (e.clientY - cy) / (rect.height / 2))));
+    };
+    const onEnter = () => document.addEventListener("mousemove", onMove);
+    const onLeave = () => {
+      document.removeEventListener("mousemove", onMove);
+      px.set(0);
+      py.set(0);
+    };
+
+    el.addEventListener("mouseenter", onEnter);
+    el.addEventListener("mouseleave", onLeave);
+    return () => {
+      el.removeEventListener("mouseenter", onEnter);
+      el.removeEventListener("mouseleave", onLeave);
+      document.removeEventListener("mousemove", onMove);
+    };
+  }, [px, py]);
+
+  const rotX = useSpring(useTransform(py, [-1, 1], [10, -10]), spring);
+  const rotY = useSpring(useTransform(px, [-1, 1], [-14, 14]), spring);
 
   return (
     <div className="text-center lg:col-span-4 lg:self-center lg:text-left">
-      <div className="relative mx-auto w-fit lg:mx-0" style={{ perspective: 1000 }}>
-        <motion.div
+      <div
+        ref={stageRef}
+        className="relative mx-auto w-fit lg:mx-0"
+        style={{ perspective: 1000 }}
+      >
+        <div
           aria-hidden
-          style={{ x: glowX, y: glowY }}
           className="absolute -inset-7 -z-10 rounded-full bg-accent/25 blur-2xl"
         />
         <motion.div
-          style={{
-            x: imgX,
-            y: imgY,
-            rotateX: rotX,
-            rotateY: rotY,
-            transformStyle: "preserve-3d",
-          }}
+          style={{ rotateX: rotX, rotateY: rotY, transformStyle: "preserve-3d" }}
           className="will-change-transform"
         >
           <img
