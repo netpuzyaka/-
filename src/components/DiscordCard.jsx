@@ -1,4 +1,4 @@
-import { motion } from "framer-moti
+import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 
 const STATUS = {
