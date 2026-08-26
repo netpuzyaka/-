@@ -7,10 +7,11 @@ export default function Footer() {
           alt="Hryak Team"
           className="h-10 w-10 rounded-xl border border-line object-cover"
         />
-        <p className="font-display text-lg font-bold">Hryak Team</p>
-        <p className="font-mono text-xs text-mist">
+        <p className="text-neon font-display text-lg font-bold">Hryak Team</p>
+        <p className="font-mono text-xs text-ink-soft">
           © 2026 — imgenius_ & drbabaxa · сайты на React, программы на C# / C++ / Python
         </p>
+        <p className="font-mono text-[11px] text-mist">сделано с любовью ✦</p>
       </div>
     </footer>
   );

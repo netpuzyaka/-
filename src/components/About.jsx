@@ -11,7 +11,9 @@ const cards = [
     title: "Разработка сайтов",
     text: "Современные сайты и веб-приложения на React с чистой разметкой на HTML и стилизацией на CSS. Адаптивно, быстро, с вниманием к деталям.",
     tags: ["React", "HTML", "CSS"],
-    accent: "from-blurple/25 to-transparent",
+    accent: "from-neon-pink/25 to-transparent",
+    glow: "hover:border-neon-pink/60 hover:shadow-neon-pink/15",
+    iconColor: "text-neon-pink group-hover:text-neon-cyan",
   },
   {
     icon: (
@@ -22,7 +24,9 @@ const cards = [
     title: "Разработка программ",
     text: "Десктопные приложения на C#, производительный системный код на C++ и скрипты, утилиты и автоматизация на Python.",
     tags: ["C#", "C++", "Python"],
-    accent: "from-blurple-2/25 to-transparent",
+    accent: "from-neon-purple/25 to-transparent",
+    glow: "hover:border-neon-purple/60 hover:shadow-neon-purple/15",
+    iconColor: "text-neon-purple group-hover:text-neon-cyan",
   },
 ];
 
@@ -35,10 +39,12 @@ export default function About() {
         viewport={{ once: true, margin: "-80px" }}
         transition={{ duration: 0.6 }}
       >
-        <p className="mb-3 font-mono text-xs uppercase tracking-[0.25em] text-blurple">
+        <p className="mb-3 font-mono text-xs uppercase tracking-[0.25em] text-neon-pink">
           // who we are
         </p>
-        <h2 className="font-display text-3xl font-bold tracking-tight sm:text-4xl">О нас</h2>
+        <h2 className="text-neon glitch-target font-display text-3xl font-bold tracking-tight sm:text-4xl">
+          О нас
+        </h2>
       </motion.div>
 
       <div className="mt-10 grid gap-5 md:grid-cols-2">
@@ -49,18 +55,18 @@ export default function About() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-60px" }}
             transition={{ duration: 0.6, delay: i * 0.12 }}
-            className="group relative overflow-hidden rounded-3xl border border-line bg-card p-7 transition-all duration-300 hover:-translate-y-1.5 hover:border-blurple/50 hover:shadow-2xl hover:shadow-blurple/10"
+            className={`glass-card group relative overflow-hidden rounded-3xl p-7 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-2xl ${c.glow}`}
           >
             <div className={`pointer-events-none absolute inset-0 bg-gradient-to-br ${c.accent}`} />
             <div className="relative">
-              <div className="mb-5 inline-flex h-14 w-14 items-center justify-center rounded-2xl border border-line bg-surface text-blurple transition-colors duration-300 group-hover:text-blurple-2">
+              <div className={`mb-5 inline-flex h-14 w-14 items-center justify-center rounded-2xl border border-line bg-surface transition-colors duration-300 ${c.iconColor}`}>
                 {c.icon}
               </div>
               <h3 className="mb-2.5 text-xl font-bold">{c.title}</h3>
-              <p className="text-sm leading-relaxed text-mist">{c.text}</p>
+              <p className="text-sm leading-relaxed text-ink-soft">{c.text}</p>
               <div className="mt-5 flex flex-wrap gap-2">
                 {c.tags.map((t) => (
-                  <span key={t} className="rounded-md border border-line bg-ink/60 px-2.5 py-1 font-mono text-xs text-gray-300">
+                  <span key={t} className="rounded-md border border-line bg-black/30 px-2.5 py-1 font-mono text-xs text-ink-soft">
                     {t}
                   </span>
                 ))}
